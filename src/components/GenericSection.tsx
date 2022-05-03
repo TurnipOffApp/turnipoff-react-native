@@ -42,7 +42,7 @@ const styles = (theme: Theme | undefined) =>
       textAlign: 'center',
       ...theme?.typos.tiny,
       marginTop: 4,
-      maxWidth: 110,
+      maxWidth: 105,
     },
   });
 
