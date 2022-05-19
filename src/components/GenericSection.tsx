@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FlatList,
   ListRenderItem,
+  Pressable,
   StyleSheet,
   Text,
   useWindowDimensions,
@@ -70,16 +71,17 @@ export default function GenericSection({
 
   const renderItem: ListRenderItem<GenericSectionItem> = ({item}) => {
     return (
-      <View style={baseStyles.posterContainer}>
+      <Pressable
+        style={baseStyles.posterContainer}
+        onPress={() => {
+          if (onPress) {
+            onPress(item);
+          }
+        }}>
         <Poster
           imagePath={item.imagePath}
           height={dimensions.height / 5}
           format="w185"
-          onPress={() => {
-            if (onPress) {
-              onPress(item);
-            }
-          }}
         />
         <Text
           numberOfLines={1}
@@ -93,7 +95,7 @@ export default function GenericSection({
           style={baseStyles.itemRole}>
           {item.subTitle}
         </Text>
-      </View>
+      </Pressable>
     );
   };
 
