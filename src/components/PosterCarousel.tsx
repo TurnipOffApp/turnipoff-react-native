@@ -48,7 +48,7 @@ export default function PosterCarousel({movies, onPress}: PosterCarouselProps) {
         <Poster
           imagePath={item.poster_path}
           height={dimensions.height / 3}
-          format="w342"
+          format="w185"
           onPress={() => {
             if (onPress) {
               onPress(item);

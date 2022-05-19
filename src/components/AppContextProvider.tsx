@@ -1,6 +1,6 @@
 import React from 'react';
 import {ReactNode} from 'react';
-import {useColorScheme} from 'react-native';
+//import {useColorScheme} from 'react-native';
 import {darkTheme, lightTheme, Theme} from '../themes';
 
 interface AppContextInterface {
@@ -16,7 +16,8 @@ export type AppContextProviderProps = {
 };
 
 export function AppContextProvider({children}: AppContextProviderProps) {
-  const colorScheme = useColorScheme();
+  // Force dark mode
+  const colorScheme = 'dark'; //useColorScheme();
 
   const value: AppContextInterface = {
     theme: colorScheme === 'dark' ? darkTheme : lightTheme,

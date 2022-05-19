@@ -76,8 +76,8 @@ export default function Header({person, style, voteAverage}: HeaderProps) {
       <View style={baseStyles.posterContainer}>
         <Poster
           imagePath={person.profile_path}
-          height={dimensions.height / 3.2}
-          format={'w342'}
+          height={dimensions.height / 4.2}
+          format={'w185'}
         />
       </View>
       <View style={baseStyles.infoPanel}>

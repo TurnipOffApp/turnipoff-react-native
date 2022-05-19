@@ -74,7 +74,7 @@ export default function GenericSection({
         <Poster
           imagePath={item.imagePath}
           height={dimensions.height / 5}
-          format="w154"
+          format="w185"
           onPress={() => {
             if (onPress) {
               onPress(item);
