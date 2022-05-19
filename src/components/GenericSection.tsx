@@ -72,7 +72,10 @@ export default function GenericSection({
   const renderItem: ListRenderItem<GenericSectionItem> = ({item}) => {
     return (
       <Pressable
-        style={baseStyles.posterContainer}
+        style={({pressed}) => [
+          baseStyles.posterContainer,
+          {opacity: pressed && onPress ? 0.5 : 1.0},
+        ]}
         onPress={() => {
           if (onPress) {
             onPress(item);
