@@ -75,7 +75,7 @@ export default function Header({movie, style}: HeaderProps) {
       <View style={baseStyles.posterContainer}>
         <Poster
           imagePath={movie.poster_path}
-          height={dimensions.height / 3.2}
+          height={dimensions.height / 4}
           format={'w342'}
         />
       </View>
