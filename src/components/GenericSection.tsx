@@ -69,9 +69,10 @@ export default function GenericSection({
   const theme = useTheme();
   const baseStyles = styles(theme);
 
-  const renderItem: ListRenderItem<GenericSectionItem> = ({item}) => {
+  const renderItem: ListRenderItem<GenericSectionItem> = ({index, item}) => {
     return (
       <Pressable
+        testID={`${title}_${index}`}
         style={({pressed}) => [
           baseStyles.posterContainer,
           {opacity: pressed && onPress ? 0.5 : 1.0},
@@ -85,6 +86,11 @@ export default function GenericSection({
           imagePath={item.imagePath}
           height={dimensions.height / 5}
           format="w185"
+          onPress={() => {
+            if (onPress) {
+              onPress(item);
+            }
+          }}
         />
         <Text
           numberOfLines={1}
