@@ -72,6 +72,8 @@ export default function GenericSection({
   const renderItem: ListRenderItem<GenericSectionItem> = ({index, item}) => {
     return (
       <Pressable
+        accessible={true}
+        accessibilityLabel={`${title}_${index}`}
         testID={`${title}_${index}`}
         style={({pressed}) => [
           baseStyles.posterContainer,
