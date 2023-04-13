@@ -29,7 +29,7 @@ export default function Trending({style}: TrendingProps) {
       style={style}
       onPress={() => {
         // Ugly work around to allow navigation for automated testing
-        navigation.push('Movie' as never, {id: 116977} as never);
+        navigation.push('Movie' as never, {id: 31124} as never);
       }}>
       <PosterCarousel
         movies={trendingMovies}
