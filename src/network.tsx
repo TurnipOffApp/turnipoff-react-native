@@ -50,7 +50,7 @@ export const useQuery = <TData,>(url?: string, params?: URLSearchParams) => {
       let parameters = params ? params : new URLSearchParams();
       parameters.append('api_key', TMDB_API_KEY);
       parameters.append('language', locale.languageCode);
-      parameters.append('region', "US");
+      parameters.append('region', 'US');
 
       const response = await fetch(`${url}?${parameters.toString()}`);
       const json = await response.json();
@@ -135,7 +135,7 @@ export const useMoviesQuery = (
         sort_by: `${sortBy.attribute}.${sortBy.order}`,
         adult: 'false',
         language: locale.languageCode,
-        region: "US",
+        region: 'US',
         'vote_count.gte': '25',
       });
       if (genres) {

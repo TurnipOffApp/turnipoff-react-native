@@ -5,6 +5,7 @@ import {
   ListRenderItem,
   StyleSheet,
   useWindowDimensions,
+  Pressable,
 } from 'react-native';
 import {Movie} from '../models/Movie';
 import Poster from './Poster';
@@ -41,9 +42,17 @@ export default function PosterCarousel({movies, onPress}: PosterCarouselProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dimensions]);
 
-  const renderItem: ListRenderItem<Movie> = ({item}) => {
+  const renderItem: ListRenderItem<Movie> = ({item, index}) => {
     return (
-      <View
+      <Pressable
+        accessible={true}
+        accessibilityLabel={`poster_carousel_${index}`}
+        testID={`poster_carousel_${index}`}
+        onPress={() => {
+          if (onPress) {
+            onPress(item);
+          }
+        }}
         style={{...baseStyles.posterContainer, ...{width: dimensions.width}}}>
         <Poster
           imagePath={item.poster_path}
@@ -55,7 +64,7 @@ export default function PosterCarousel({movies, onPress}: PosterCarouselProps) {
             }
           }}
         />
-      </View>
+      </Pressable>
     );
   };
 

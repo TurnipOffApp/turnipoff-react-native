@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import {
   FlatList,
   ListRenderItem,
+  Pressable,
   StyleSheet,
   Text,
   useWindowDimensions,
@@ -48,9 +49,21 @@ export default function PosterSection({
 
   const {movies, loadMore} = query;
 
-  const renderItem: ListRenderItem<Movie> = ({item}) => {
+  const renderItem: ListRenderItem<Movie> = ({item, index}) => {
     return (
-      <View style={baseStyles.posterContainer}>
+      <Pressable
+        accessible={true}
+        accessibilityLabel={`${title}_${index}`}
+        testID={`${title}_${index}`}
+        style={({pressed}) => [
+          baseStyles.posterContainer,
+          {opacity: pressed && onPress ? 0.5 : 1.0},
+        ]}
+        onPress={() => {
+          if (onPress) {
+            onPress(item);
+          }
+        }}>
         <Poster
           imagePath={item.poster_path}
           height={dimensions.height / 5}
@@ -61,7 +74,7 @@ export default function PosterSection({
             }
           }}
         />
-      </View>
+      </Pressable>
     );
   };
 
